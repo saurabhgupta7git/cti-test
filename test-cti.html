@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fake CTI</title>
+</head>
+<body>
+  <h2>Simulate CTI Call</h2>
+  <button onclick="sendFakeCall()">Send CALL_INITIATED</button>
+
+  <script>
+    function sendFakeCall() {
+      const message = {
+        source: 'FakeCTI',
+        type: 'CALL_INITIATED',
+        payload: {
+          caseSubject: 'Test Support Call',
+          contactEmail: 'test@cti.com',
+          vehicleModel: 'Tesla Model 3'
+        }
+      };
+      window.parent.postMessage(message, '*');
+      alert('Event sent to Salesforce LWC');
+    }
+  </script>
+</body>
+</html>
