@@ -18,7 +18,8 @@
           vehicleModel: 'Tesla Model 3'
         }
       };
-      window.parent.postMessage(message, '*');
+      const cleanMessage = JSON.parse(JSON.stringify(message));
+      window.parent.postMessage(cleanMessage, '*');
       alert('Event sent to Salesforce LWC');
     }
   </script>
