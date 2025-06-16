@@ -23,7 +23,7 @@
       ? new URL(document.referrer).origin
       : '*';
       console.log('Sending message to parent origin:', parentOrigin);
-      window.parent.postMessage(cleanMessage, parentOrigin);
+      window.parent.postMessage(cleanMessage, 'https://connect-saas-7933-dev-ed.scratch.lightning.force.com');
       //window.parent.postMessage(cleanMessage, '*');
       alert('Event sent to Salesforce');
     }
