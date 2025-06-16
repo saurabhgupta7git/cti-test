@@ -19,8 +19,13 @@
         }
       };
       const cleanMessage = JSON.stringify(message);
-      window.parent.postMessage(cleanMessage, '*');
-      alert('Event sent to Salesforce LWC');
+      const parentOrigin = document.referrer
+      ? new URL(document.referrer).origin
+      : '*';
+      console.log('Sending message to parent origin:', parentOrigin);
+      window.parent.postMessage(cleanMessage, parentOrigin);
+      //window.parent.postMessage(cleanMessage, '*');
+      alert('Event sent to Salesforce');
     }
   </script>
 </body>
